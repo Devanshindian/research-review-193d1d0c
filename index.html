@@ -70,6 +70,30 @@
     background:var(--wash); border:1px solid var(--orange-soft); border-radius:100px; padding:6px 14px; font-size:13.5px; margin-top:10px;}
   .detail-link:hover{background:var(--orange-soft);}
   .groupname{font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--orange); margin:26px 0 4px;}
+  .groupname:first-child{margin-top:6px;}
+
+  /* animated dashed border around the whole bundle (marching ants) */
+  .marching{position:relative; padding:24px 20px 22px; border-radius:16px; background-color:transparent;
+    background-image:
+      linear-gradient(90deg, var(--orange) 50%, transparent 50%),
+      linear-gradient(90deg, var(--orange) 50%, transparent 50%),
+      linear-gradient(0deg, var(--orange) 50%, transparent 50%),
+      linear-gradient(0deg, var(--orange) 50%, transparent 50%);
+    background-repeat:repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size:14px 2px, 14px 2px, 2px 14px, 2px 14px;
+    background-position:0 0, 0 100%, 0 0, 100% 0;
+    animation:marching 1s infinite linear;}
+  @keyframes marching{100%{background-position:14px 0, -14px 100%, 0 -14px, 100% 14px;}}
+  @media(prefers-reduced-motion:reduce){.marching{animation:none;}}
+
+  /* the blueprint: the main output, highlighted in blue */
+  .item.hero{background:var(--blue); border-color:var(--blue-line);}
+  .item.hero[open]{border-color:var(--blue-ink);}
+  .item.hero summary .n{background:#fff; border-color:var(--blue-line); color:var(--blue-ink);}
+  .item.hero summary .arw{color:var(--blue-ink);}
+  .item.hero .kres{background:#fff; border-color:var(--blue-line);}
+  .hero-tag{font-size:10.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--blue-ink);
+    background:#fff; border:1px solid var(--blue-line); border-radius:100px; padding:2px 9px; margin-left:10px;}
 
   footer{padding:34px 0 54px; color:var(--muted); font-size:13.5px;}
   @media(max-width:760px){ .steps{grid-template-columns:1fr 1fr;} .item .body{padding-left:18px;} }
@@ -91,7 +115,6 @@
     <a href="#recap">The recap</a>
     <a href="#how">How it runs</a>
     <a href="#bundle">The bundle</a>
-    <a href="#close">Over to you</a>
   </div>
 </nav>
 
@@ -136,6 +159,7 @@
     <b>rulebook</b> every article follows, then the <b>research</b> done for this topic. Click any item to read what
     it is and what it does. The link inside opens the full document in a new tab.</p>
 
+    <div class="marching">
     <div class="groupname">Part one: the writer's rulebook (the same for every article)</div>
 
     <details class="item"><summary><span class="n">1</span><span class="tl">Voice</span><span class="arw">›</span></summary>
@@ -289,14 +313,16 @@
         <a class="detail-link" href="gap.html" target="_blank" rel="noopener">See the full gap-check ↗</a>
       </div></details>
 
-    <details class="item"><summary><span class="n">12</span><span class="tl">The article blueprint</span><span class="arw">›</span></summary>
+    <details class="item hero"><summary><span class="n">12</span><span class="tl">The article blueprint</span><span class="hero-tag">the main output</span><span class="arw">›</span></summary>
       <div class="body">
-        <p>Where it all comes together. How it is built:</p>
+        <p>Where it all comes together, and the most important piece of the bundle. How it is built:</p>
         <ul>
           <li>It breaks every source into small cards, one idea each.</li>
           <li>It scores each card against our angle and drops the off-topic ones, so the article stays on point.</li>
           <li>It groups the surviving cards into sections, so each idea sits in exactly one place, and names each section.</li>
-          <li>It hangs the evidence, the internal and external links, and a target keyword onto each section.</li>
+          <li>Each section gets its own target keyword, chosen for low difficulty and healthy search volume, so more of the article can rank, not just the top of it.</li>
+          <li>It also pulls in Testlify's own relevant pages as internal links under each section. That gives the article ready-made links back to our existing content, which strengthens both the research and our SEO.</li>
+          <li>It attaches the supporting evidence and the outside sources to each section too, ready to cite.</li>
           <li>The result is a section-by-section plan the writer opens and writes from, with nothing left to hunt for.</li>
         </ul>
         <div class="kres"><div class="kt">Key results for this topic</div><ul>
@@ -312,17 +338,7 @@
     All twelve pieces above travel together as one bundle to the writing phase, which we have not built yet. When it
     is built, that phase opens this bundle and turns it into the finished article. The reader we are writing for (a TA
     or recruiting leader) and the byline (the Testlify Team) are already chosen by the engine, not left to the writer.</div>
-  </div>
-</section>
-
-<!-- CLOSE -->
-<section id="close">
-  <div class="wrap">
-    <h2>Over to you</h2>
-    <p>That is the full bundle for one topic, built by one command that runs the same way every time and can be set
-    on a schedule. We would like your review of the output above.</p>
-    <p>If you want to understand exactly how any step works under the hood, the keyword research, the evidence
-    method, the gap-check, or the plan, just ask. I can share the detailed workflow for any of them.</p>
+    </div>
   </div>
 </section>
 
