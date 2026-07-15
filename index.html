@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research phase: one topic, end to end (team review)</title>
+<style>
+  :root{
+    --ink:#1c1a17; --muted:#6b6459; --line:#efe7d8;
+    --paper:#ffffff; --cream:#fffdf8; --wash:#fff8ec;
+    --yellow:#ffb703; --yellow-soft:#ffe9ad; --orange:#fb7a00; --orange-soft:#ffd9b0;
+    --green:#e8f5ec; --green-line:#cfe8d5; --green-ink:#2e7d43;
+    --red:#fdf3f0; --red-line:#f6d9cf; --red-ink:#c2603a;
+    --blue:#eef4fb; --blue-line:#d3e2f2; --blue-ink:#2f6fb0;
+    --shadow:0 1px 2px rgba(28,26,23,.04), 0 8px 24px rgba(28,26,23,.05);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.62; font-size:16.5px; -webkit-font-smoothing:antialiased;}
+  a{color:var(--orange);}
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+
+  header{background:linear-gradient(180deg,var(--wash),var(--paper)); border-bottom:1px solid var(--line); padding:60px 0 40px;}
+  .kicker{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--orange); background:var(--paper); border:1px solid var(--orange-soft); padding:5px 12px; border-radius:100px; margin-bottom:20px;}
+  h1{font-size:clamp(28px,5vw,42px); line-height:1.12; margin:0 0 14px; letter-spacing:-.02em;}
+  h1 .hl{background:linear-gradient(180deg,transparent 62%,var(--yellow-soft) 62%); padding:0 2px;}
+  .lede{font-size:18.5px; color:var(--muted); max-width:700px; margin:0;}
+
+  nav{position:sticky; top:0; z-index:10; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex; gap:4px; flex-wrap:wrap; padding-top:11px; padding-bottom:11px;}
+  nav a{font-size:13px; font-weight:600; color:var(--muted); text-decoration:none; padding:6px 11px; border-radius:100px;}
+  nav a:hover{color:var(--ink); background:var(--wash);}
+
+  section{padding:50px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{font-size:26px; letter-spacing:-.01em; margin:0 0 6px;}
+  h2 .num{color:var(--orange); font-variant-numeric:tabular-nums; margin-right:10px;}
+  .sub{color:var(--muted); margin:0 0 22px; font-size:17px; max-width:720px;}
+  h3{font-size:17px; margin:22px 0 8px;}
+  p{margin:0 0 14px;}
+  .muted{color:var(--muted);} b{color:var(--ink);}
+  ul,ol{margin:0 0 14px; padding-left:20px;} li{margin:4px 0;}
+
+  .note{background:var(--cream); border:1px solid var(--line); border-left:4px solid var(--yellow); border-radius:12px; padding:16px 18px; margin:18px 0; font-size:15.5px;}
+  .note.orange{border-left-color:var(--orange); background:var(--wash);}
+  .tag{font-size:11.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange);}
+
+  .card{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow); margin:16px 0;}
+  .card h3{margin:0 0 6px; font-size:16.5px;}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px;}
+  .plain{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:14.5px;}
+  .plain b{color:var(--ink);}
+
+  .what{display:grid; grid-template-columns:auto 1fr; gap:8px 12px; margin:6px 0 16px; font-size:15px;}
+  .what .k{font-weight:700; color:var(--orange); font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; padding-top:2px;}
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; background:var(--paper);
+    border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+  th{background:var(--wash); font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  .pill{display:inline-block; font-size:11px; font-weight:700; padding:1px 8px; border-radius:100px; white-space:nowrap;}
+  .pill.angle{color:var(--green-ink); background:var(--green); border:1px solid var(--green-line);}
+  .kw{font-family:ui-monospace,Menlo,monospace; font-size:12px; color:var(--blue-ink);}
+
+  .stats{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0;}
+  .stat{flex:1; min-width:130px; background:var(--wash); border:1px solid var(--orange-soft); border-radius:14px; padding:14px 16px;}
+  .stat .big{font-size:26px; font-weight:800; letter-spacing:-.02em;} .stat .cap{font-size:12.5px; color:var(--muted);}
+
+  .steps{display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin:18px 0;}
+  .stepc{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:12px; box-shadow:var(--shadow);}
+  .stepc .n{width:24px; height:24px; border-radius:8px; background:var(--yellow-soft); border:1.5px solid var(--yellow); display:grid; place-items:center; font-weight:800; font-size:13px; margin-bottom:7px;}
+  .stepc b{font-size:13.5px;} .stepc p{margin:3px 0 0; font-size:12.5px; color:var(--muted);}
+
+  /* accordion */
+  details{background:var(--paper); border:1px solid var(--line); border-radius:12px; margin:9px 0; box-shadow:var(--shadow); overflow:hidden;}
+  details[open]{border-color:var(--orange-soft);}
+  summary{cursor:pointer; padding:13px 16px; font-weight:600; font-size:15px; list-style:none; display:flex; align-items:center; gap:10px;}
+  summary::-webkit-details-marker{display:none;}
+  summary .n{flex:none; width:24px; height:24px; border-radius:7px; background:var(--wash); border:1px solid var(--orange-soft); display:grid; place-items:center; font-size:12px; font-weight:800; color:var(--orange);}
+  summary .arw{margin-left:auto; color:var(--orange); transition:transform .15s;}
+  details[open] summary .arw{transform:rotate(90deg);}
+  details .body{padding:0 16px 14px 50px; font-size:14.5px; color:var(--muted);}
+  details .body .file{font-family:ui-monospace,Menlo,monospace; font-size:12px;}
+
+  footer{padding:36px 0 56px; color:var(--muted); font-size:13.5px;}
+  @media(max-width:760px){ .grid,.steps{grid-template-columns:1fr;} .what{grid-template-columns:1fr;} .what .k{padding-top:10px;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="kicker">Research phase · for team review</span>
+    <h1>What our research engine produced for <span class="hl">one topic</span>, end to end</h1>
+    <p class="lede">The engine takes one approved topic and builds everything a writer needs, without a person doing
+    the digging. This page shows that full output for a single topic, with a short plain note on what each part is
+    and why it matters. Please have a read and share your thoughts.</p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#recap">The recap</a>
+    <a href="#how">How it runs</a>
+    <a href="#topic">The topic</a>
+    <a href="#keywords">Keywords</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#gap">Gap-check</a>
+    <a href="#blueprint">The plan</a>
+    <a href="#bundle">The bundle</a>
+  </div>
+</nav>
+
+<!-- RECAP -->
+<section id="recap">
+  <div class="wrap">
+    <h2>Where this fits</h2>
+    <p>A quick recap so this sits in the right place. Earlier we shared the shortlisted content ideas as a
+    reviewable list, and your team looked those over. That page is still live here:
+    <a href="https://devanshindian.github.io/ideas-review-0a511163/" target="_blank">the clubbed ideas review</a>.</p>
+    <p>This is the phase that comes after. We take one idea from that list and the engine researches it from start to
+    finish, then hands a writer a ready-to-write pack. Below is the real output for one of those ideas, our 2026
+    skills-based hiring benchmark report. Nothing here was written by hand. It is what the engine produced.</p>
+  </div>
+</section>
+
+<!-- HOW IT RUNS -->
+<section id="how" style="background:var(--cream);">
+  <div class="wrap">
+    <h2>How it runs, in short</h2>
+    <p class="sub">You do not want the technical detail, and you do not need it to judge the output. Here is the
+    whole idea in a few lines.</p>
+    <div class="note orange"><span class="tag">One command, same result every time</span><br>
+    A single command runs the whole thing. It works through five steps in a fixed order, and it can be put on a
+    schedule so it runs on its own. It does not improvise: give it the same topic and you get the same shape of
+    output every run. That is what makes it safe to trust and repeat across dozens of topics.</div>
+    <div class="steps">
+      <div class="stepc"><div class="n">1</div><b>Keywords</b><p>Find the search terms to target and who already ranks.</p></div>
+      <div class="stepc"><div class="n">2</div><b>Evidence</b><p>Gather deep, fully-sourced facts from the open web.</p></div>
+      <div class="stepc"><div class="n">3</div><b>Gap-check</b><p>Confirm the evidence covers what the article needs.</p></div>
+      <div class="stepc"><div class="n">4</div><b>The plan</b><p>Turn it all into a section-by-section article plan.</p></div>
+      <div class="stepc"><div class="n">5</div><b>The pack</b><p>Bundle everything into one ready-to-write handoff.</p></div>
+    </div>
+    <div class="note"><span class="tag">The one step worth a mention</span><br>
+    For the deep evidence (step 2) we use a method that works like a small newsroom. It invents a few expert
+    interviewers, each one interviews a researcher who may only answer from web pages it reads in that moment, and
+    then it writes up what they found with a source behind every line. Nothing comes from memory, so every fact
+    traces back to a real page. If you want to see exactly how any step works, just ask and I will walk you through it.</div>
+  </div>
+</section>
+
+<!-- THE TOPIC -->
+<section id="topic">
+  <div class="wrap">
+    <h2>The topic we researched</h2>
+    <div class="card">
+      <h3>Testlify State of Skills-Based Hiring 2026: an annual benchmark report</h3>
+      <p class="muted" style="margin:0;">Our angle: an annual report that stays fully free, covering the numbers most
+      vendors keep behind a form. Assessment drop-off, time spent in a test, candidate satisfaction, AI cheating, and
+      quality of hire by screening method. The closest competitor gates theirs; ours is open, and refreshed each year.
+      That open, free position is the thing we can win on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KEYWORDS -->
+<section id="keywords" style="background:var(--cream);">
+  <div class="wrap">
+    <h2><span class="num">1</span>Keyword and competitor research</h2>
+    <div class="what">
+      <div class="k">What it is</div><div>The search terms worth targeting, who ranks for them today, and the gap we can win.</div>
+      <div class="k">Why it matters</div><div>It points the article at demand we can realistically rank for, and names the opening no competitor has taken.</div>
+    </div>
+    <div class="grid">
+      <div class="plain"><b>Main term</b><br><span class="kw">skills based hiring</span>. About 880 searches a
+        month, and low difficulty to rank (12 out of 100). Winnable.</div>
+      <div class="plain"><b>The opening we can own</b><br>No page that ranks today publishes a free annual benchmark
+        of assessment-stage numbers, AI cheating, candidate experience, and quality of hire by method. That is our whole angle.</div>
+    </div>
+    <h3>Supporting terms it found (all low difficulty)</h3>
+    <p class="muted" style="font-size:14.5px;">Each of these can anchor its own section, and most are easy to rank
+    for: <span class="kw">predictive validity</span>, <span class="kw">cut score</span>,
+    <span class="kw">construct validity</span>, <span class="kw">content validity</span>,
+    <span class="kw">criterion validity</span>, <span class="kw">disparate impact</span>,
+    <span class="kw">employee turnover rate</span>, <span class="kw">2026 recruitment</span>.</p>
+    <h3>Who ranks now</h3>
+    <p class="muted" style="font-size:14.5px;">A mix of HR bodies, media, and vendors: NACE, SHRM, AIHR, Workday,
+    Robert Walters, the U.S. Chamber Foundation, Handshake, and TestGorilla. Strong names, but none of them offers
+    the free annual benchmark we are planning.</p>
+    <div class="note"><span class="tag">It also plans ahead</span><br>
+    The same step surfaced a set of follow-up article ideas (we call them spokes) that this report could later link
+    out to, each scored and ranked so only the best few get picked up. Those become their own articles down the line.</div>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section id="evidence">
+  <div class="wrap">
+    <h2><span class="num">2</span>The evidence pack</h2>
+    <div class="what">
+      <div class="k">What it is</div><div>A long, fully-sourced research write-up the writer draws real facts from.</div>
+      <div class="k">Why it matters</div><div>It means the article is built on cited, checkable facts, not on guesses or filler.</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="big">7,042</div><div class="cap">words of researched, cited notes</div></div>
+      <div class="stat"><div class="big">30</div><div class="cap">real sources, one behind every claim</div></div>
+      <div class="stat"><div class="big">3</div><div class="cap">extra targeted rounds to fill gaps</div></div>
+    </div>
+    <details>
+      <summary><span class="n">↕</span>See two facts it pulled<span class="arw">›</span></summary>
+      <div class="body">
+        <p style="margin:12px 0 8px;">These come straight from the evidence pack, each tied to a named source:</p>
+        <ul>
+          <li>NACE's Job Outlook 2026 survey of 183 employers found 70% used skills-based hiring, up from 65% the year before.</li>
+          <li>Structured interviews showed the highest predictive validity of common screening methods (mean r = .42, Sackett and colleagues, 2023), with smaller demographic gaps than cognitive-ability tests.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- GAP CHECK -->
+<section id="gap" style="background:var(--cream);">
+  <div class="wrap">
+    <h2><span class="num">3</span>The gap-check</h2>
+    <div class="what">
+      <div class="k">What it is</div><div>A check that the evidence actually covers everything the article needs, with a top-up when it does not.</div>
+      <div class="k">Why it matters</div><div>It stops a thin spot from reaching the writer. If something important is missing, the engine goes back and researches it before moving on.</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="big">30</div><div class="cap">must-cover items checked</div></div>
+      <div class="stat"><div class="big">19</div><div class="cap">fully covered</div></div>
+      <div class="stat"><div class="big">6</div><div class="cap">missing, so it went back</div></div>
+      <div class="stat"><div class="big">3</div><div class="cap">extra research rounds it ran to fill them</div></div>
+    </div>
+    <p class="muted" style="font-size:14.5px;">Five more were only partly covered. The engine ranks the misses by
+    how much they matter, then runs a small number of targeted research rounds to close the important ones. It does
+    not chase every tiny gap, which keeps it focused.</p>
+  </div>
+</section>
+
+<!-- BLUEPRINT -->
+<section id="blueprint">
+  <div class="wrap">
+    <h2><span class="num">4</span>The article plan</h2>
+    <div class="what">
+      <div class="k">What it is</div><div>The article laid out section by section, where each section already carries its evidence, its links, and a target keyword.</div>
+      <div class="k">Why it matters</div><div>The writer opens this and writes. No hunting for a fact, a link, or a heading. This is the heart of the output.</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="big">20</div><div class="cap">possible sections (a menu to pick from)</div></div>
+      <div class="stat"><div class="big">76</div><div class="cap">sub-points under them</div></div>
+      <div class="stat"><div class="big">~1,700</div><div class="cap">pieces of evidence attached</div></div>
+      <div class="stat"><div class="big">274</div><div class="cap">off-topic pieces filtered out first</div></div>
+    </div>
+    <p>The plan is a menu, not the final article. It lays out every section the research can support, and the writer
+    trims it to the four to seven that ship. Five sections are flagged as our own angle, the parts competitors do not
+    cover. Here is a sample of the sections, with the keyword each one targets:</p>
+    <table>
+      <tr><th>Section</th><th>Target keyword</th><th></th></tr>
+      <tr><td>Skills-based hiring: adoption, methods, and outcomes</td><td class="kw">skills based hiring</td><td></td></tr>
+      <tr><td>What types of pre-employment assessments work best</td><td class="kw">pre-employment assessments</td><td></td></tr>
+      <tr><td>How to validate pre-hire assessments and use validity evidence</td><td class="muted">no set term</td><td><span class="pill angle">our angle</span></td></tr>
+      <tr><td>How to design and defend fair selection processes</td><td class="kw">four-fifths rule</td><td></td></tr>
+      <tr><td>How to measure and benchmark hiring-process performance</td><td class="muted">no set term</td><td><span class="pill angle">our angle</span></td></tr>
+      <tr><td>How to measure hiring ROI, quality of hire, and retention</td><td class="kw">employee retention rate formula</td><td><span class="pill angle">our angle</span></td></tr>
+      <tr><td>AI-assisted assessment cheating: how common, and can it be caught</td><td class="muted">no set term</td><td><span class="pill angle">our angle</span></td></tr>
+      <tr><td>How to measure candidate experience across hiring</td><td class="kw">candidate experience survey template</td><td></td></tr>
+    </table>
+    <p class="muted" style="font-size:14px;">Some sections carry no keyword on purpose. Our best, most original
+    sections often have little search volume, and forcing a term onto them would only weaken them.</p>
+  </div>
+</section>
+
+<!-- BUNDLE -->
+<section id="bundle" style="background:var(--cream);">
+  <div class="wrap">
+    <h2><span class="num">5</span>The ready-to-write bundle</h2>
+    <div class="what">
+      <div class="k">What it is</div><div>One folder that hands the writer everything at once, so writing needs no extra hunting.</div>
+      <div class="k">Why it matters</div><div>It closes the loop. The plan is copied in, and every house rule the writer must follow is attached and pointed to.</div>
+    </div>
+    <p>The reader we are writing for is a <b>TA or recruiting leader</b>, and the byline is the <b>Testlify Team</b>.
+    Both are chosen by the engine, not left to the writer. Click any item below to see what is inside it.</p>
+
+    <details><summary><span class="n">1</span>The article plan<span class="arw">›</span></summary>
+      <div class="body">The section-by-section plan from step 4, copied straight in. Headings, the evidence under each, the internal and external links, the target keywords, and the FAQ.</div></details>
+    <details><summary><span class="n">2</span>Voice<span class="arw">›</span></summary>
+      <div class="body">How Testlify sounds on the page, so the article reads like us and not like a generic blog.</div></details>
+    <details><summary><span class="n">3</span>Style and mechanics<span class="arw">›</span></summary>
+      <div class="body">The formatting and structure rules: heading length, how to open, how to close, and the small conventions that keep every article consistent.</div></details>
+    <details><summary><span class="n">4</span>Product facts<span class="arw">›</span></summary>
+      <div class="body">What Testlify actually does, so any mention of the product stays accurate and we never overclaim.</div></details>
+    <details><summary><span class="n">5</span>SEO checklist<span class="arw">›</span></summary>
+      <div class="body">The on-page rules to tick before publishing, so the article is set up to rank and to be quoted by search and AI answers.</div></details>
+    <details><summary><span class="n">6</span>Approved facts to cite<span class="arw">›</span></summary>
+      <div class="body">Our vetted stats, opinions, and stories the writer can pull from, so claims are backed by material we stand behind.</div></details>
+    <details><summary><span class="n">7</span>Worked examples<span class="arw">›</span></summary>
+      <div class="body">Samples of writing to match, so the tone and quality bar are shown, not just described.</div></details>
+    <details><summary><span class="n">8</span>Writing integrity<span class="arw">›</span></summary>
+      <div class="body">The honesty rules: no fake customers, no invented numbers, never cite a competitor, claim only what is true.</div></details>
+    <details><summary><span class="n">9</span>Anti-AI writing check<span class="arw">›</span></summary>
+      <div class="body">A final pass that strips the tells of machine writing, so the piece reads like a person wrote it.</div></details>
+    <details><summary><span class="n">10</span>Fuller search research<span class="arw">›</span></summary>
+      <div class="body">The deeper keyword and competitor notes behind step 1, on hand for any extra depth the plan does not already carry.</div></details>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section id="close">
+  <div class="wrap">
+    <h2>Over to you</h2>
+    <p>That is the full output for one topic, built by one command that runs the same way every time and can be put
+    on a schedule. We would like your review of the output above.</p>
+    <p>If you want to understand exactly how any step works under the hood, the keyword research, the evidence
+    method, the gap-check, or the plan, just ask. I can share the detailed workflow for any of them.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Research phase output · one topic, end to end · shared for internal review.</div>
+</footer>
+
+</body>
+</html>
