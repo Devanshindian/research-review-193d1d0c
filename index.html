@@ -10,7 +10,7 @@
     --paper:#ffffff; --cream:#fffdf8; --wash:#fff8ec;
     --yellow:#ffb703; --yellow-soft:#ffe9ad; --orange:#fb7a00; --orange-soft:#ffd9b0;
     --green:#e8f5ec; --green-line:#cfe8d5; --green-ink:#2e7d43;
-    --blue:#eef4fb; --blue-line:#d3e2f2; --blue-ink:#2f6fb0;
+    --blue:#eef4fb; --blue-line:#d3e2f2; --blue-ink:#2f6fb0; --rr:#e0392b;
     --shadow:0 1px 2px rgba(28,26,23,.04), 0 8px 24px rgba(28,26,23,.05);
   }
   *{box-sizing:border-box;}
@@ -71,6 +71,12 @@
   .detail-link:hover{background:var(--orange-soft);}
   .groupname{font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--orange); margin:26px 0 4px;}
   .groupname:first-child{margin-top:6px;}
+
+  /* the /research banner */
+  .rbanner{text-align:center; padding:6px 0 2px; margin:0 0 4px;}
+  .rcmd{font-family:ui-monospace,Menlo,Consolas,monospace; font-weight:800; color:var(--rr);
+    font-size:clamp(38px,8vw,62px); letter-spacing:-.02em; line-height:1;}
+  .rbanner p{font-size:19px; font-weight:600; color:var(--ink); margin:12px auto 0; max-width:600px; line-height:1.4;}
 
   /* animated dashed border around the whole bundle (marching ants) */
   .marching{position:relative; padding:24px 20px 22px; border-radius:16px; background-color:transparent;
@@ -160,11 +166,15 @@
 <!-- THE BUNDLE -->
 <section id="bundle">
   <div class="wrap">
+    <div class="rbanner">
+      <div class="rcmd">/research</div>
+      <p>creates this exact bundle for every topic, which then goes to the write phase.</p>
+    </div>
     <h2>The bundle the writer receives</h2>
-    <p class="sub">The topic was our <b>Testlify State of Skills-Based Hiring 2026</b> benchmark report. Everything
-    the engine hands over travels together as one bundle, in this order. It comes in two parts: first the
-    <b>rulebook</b> every article follows, then the <b>research</b> done for this topic. Click any item to read what
-    it is and what it does. The link inside opens the full document in a new tab.</p>
+    <p class="sub">The example here is our <b>Testlify State of Skills-Based Hiring 2026</b> benchmark report. The
+    bundle comes in two parts, in this order: first the <b>rulebook</b> every article follows, then the
+    <b>research</b> done for this topic. Click any item to read what it is and what it does. The link inside opens
+    the full document in a new tab.</p>
 
     <div class="marching">
     <div class="groupname">Part one: the writer's rulebook (the same for every article)</div>
