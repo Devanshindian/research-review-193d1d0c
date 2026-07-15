@@ -36,7 +36,7 @@
   section{padding:48px 0; border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
   h2{font-size:25px; letter-spacing:-.01em; margin:0 0 6px;}
-  .sub{color:var(--muted); margin:0 0 20px; font-size:16.5px; max-width:720px;}
+  .sub{color:var(--muted); margin:0 0 20px; font-size:16.5px; max-width:730px;}
   h3{font-size:15px; margin:26px 0 10px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted);}
   p{margin:0 0 14px;} .muted{color:var(--muted);} b{color:var(--ink);}
   ul,ol{margin:0 0 14px; padding-left:20px;} li{margin:4px 0;}
@@ -60,7 +60,7 @@
   summary .arw{margin-left:auto; color:var(--orange); font-weight:800; font-size:17px; transition:transform .15s;}
   details.item[open]>summary .arw{transform:rotate(90deg);}
   .item .body{padding:2px 18px 16px 54px; font-size:14.5px; color:var(--muted);}
-  .item .body p{margin:0 0 8px;} .item .body ul{margin:4px 0 10px;}
+  .item .body p{margin:0 0 10px;} .item .body ul{margin:4px 0 10px;}
   .kres{background:var(--cream); border:1px solid var(--line); border-radius:10px; padding:11px 14px; margin:6px 0 12px;}
   .kres .kt{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--orange); margin-bottom:5px;}
   .kres ul{margin:0; padding-left:18px;} .kres li{margin:3px 0; color:var(--ink);}
@@ -68,7 +68,7 @@
   .detail-link{display:inline-flex; align-items:center; gap:6px; font-weight:600; color:var(--orange); text-decoration:none;
     background:var(--wash); border:1px solid var(--orange-soft); border-radius:100px; padding:6px 14px; font-size:13.5px;}
   .detail-link:hover{background:var(--orange-soft);}
-  .groupname{font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--orange); margin:24px 0 4px;}
+  .groupname{font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--orange); margin:26px 0 4px;}
 
   footer{padding:34px 0 54px; color:var(--muted); font-size:13.5px;}
   @media(max-width:760px){ .steps{grid-template-columns:1fr 1fr;} .item .body{padding-left:18px;} }
@@ -89,7 +89,7 @@
   <div class="wrap">
     <a href="#recap">The recap</a>
     <a href="#how">How it runs</a>
-    <a href="#output">What it produced</a>
+    <a href="#bundle">The bundle</a>
     <a href="#close">Over to you</a>
   </div>
 </nav>
@@ -131,39 +131,100 @@
   </div>
 </section>
 
-<!-- WHAT IT PRODUCED -->
-<section id="output">
+<!-- THE BUNDLE -->
+<section id="bundle">
   <div class="wrap">
-    <h2>What it produced, step by step</h2>
+    <h2>The bundle the writer receives</h2>
     <p class="sub">The topic was our <b>Testlify State of Skills-Based Hiring 2026</b> benchmark report. Everything
-    below runs in order and travels together as one pack. Click any item to see, in plain terms, what it does and
-    what it produced. The arrow inside opens the full detail in a new tab.</p>
+    the engine hands over travels together as one bundle, in this order. It comes in two parts: first the
+    <b>rulebook</b> every article follows, then the <b>research</b> done for this topic. Click any item to read what
+    it is. The link inside opens the full document in a new tab.</p>
 
-    <div class="groupname">The research it did</div>
+    <div class="groupname">Part one: the writer's rulebook (the same for every article)</div>
 
-    <details class="item"><summary><span class="n">1</span><span class="tl">Keyword and competitor research</span><span class="arw">›</span></summary>
+    <details class="item"><summary><span class="n">1</span><span class="tl">Voice</span><span class="arw">›</span></summary>
       <div class="body">
-        <ul>
-          <li>Finds the search terms worth targeting and how hard each is to rank for.</li>
-          <li>Checks who ranks today, and names the opening no competitor has taken.</li>
-        </ul>
-        <div class="kres"><div class="kt">Key results</div><ul>
+        <p>Testlify's voice guide. It sets how we sound on the page: confident but always backed by a real number or
+        a named source, skills-first, practical, and free of empty hype. The writer follows it so the article reads
+        like Testlify and not a generic blog. The full guide lists each voice pillar with clear do and don't examples.</p>
+        <a class="detail-link" href="voice.html" target="_blank" rel="noopener">Open the voice guide ↗</a>
+      </div></details>
+
+    <details class="item"><summary><span class="n">2</span><span class="tl">Style and mechanics</span><span class="arw">›</span></summary>
+      <div class="body">
+        <p>The house style guide. It covers the mechanical rules a writer needs: capitalisation, how we write numbers
+        and percentages, the house spelling of industry terms, heading format, and the small conventions that keep
+        every article consistent. Open it for the full rulebook.</p>
+        <a class="detail-link" href="style.html" target="_blank" rel="noopener">Open the style guide ↗</a>
+      </div></details>
+
+    <details class="item"><summary><span class="n">3</span><span class="tl">Product facts</span><span class="arw">›</span></summary>
+      <div class="body">
+        <p>The single source of truth for what Testlify actually does. The writer checks this before any product
+        mention, so every claim is accurate and we never say more than the product delivers. It lists the features,
+        assessment types, and capabilities in full.</p>
+        <a class="detail-link" href="product.html" target="_blank" rel="noopener">Open the product facts ↗</a>
+      </div></details>
+
+    <details class="item"><summary><span class="n">4</span><span class="tl">SEO, AEO and GEO checklist</span><span class="arw">›</span></summary>
+      <div class="body">
+        <p>The on-page checklist to tick before publishing. It covers what helps an article rank on search and get
+        quoted by AI answers: heading structure, where the keyword goes, an answer-first opening, an FAQ, and more.
+        Open it for the full checklist.</p>
+        <a class="detail-link" href="seo.html" target="_blank" rel="noopener">Open the checklist ↗</a>
+      </div></details>
+
+    <details class="item"><summary><span class="n">5</span><span class="tl">Facts to cite</span><span class="arw">›</span></summary>
+      <div class="body">
+        <p>Our approved, ready-to-use material: vetted stats, opinions, and stories the writer can quote directly. It
+        keeps claims backed by things we stand behind, rather than whatever a quick web search happens to turn up.</p>
+        <a class="detail-link" href="cite.html" target="_blank" rel="noopener">Open the cite-from material ↗</a>
+      </div></details>
+
+    <details class="item"><summary><span class="n">6</span><span class="tl">Worked examples</span><span class="arw">›</span></summary>
+      <div class="body">
+        <p>Real samples of Testlify writing to model. Rather than only describing the quality bar, this shows it,
+        with full example passages the writer can match for tone and depth.</p>
+        <a class="detail-link" href="examples.html" target="_blank" rel="noopener">Open the worked examples ↗</a>
+      </div></details>
+
+    <details class="item"><summary><span class="n">7</span><span class="tl">Writing integrity</span><span class="arw">›</span></summary>
+      <div class="body">
+        <p>The honesty contract for every article. It sets the hard rules: position Testlify only where it genuinely
+        wins, invent no customers or numbers, and never cite a competitor. This is what keeps our content
+        trustworthy. Open it for the full set of rules.</p>
+        <a class="detail-link" href="integrity.html" target="_blank" rel="noopener">Open the integrity rules ↗</a>
+      </div></details>
+
+    <details class="item"><summary><span class="n">8</span><span class="tl">Anti-AI writing check</span><span class="arw">›</span></summary>
+      <div class="body">
+        <p>The final quality pass before an article ships. The draft is checked against a long list of
+        machine-writing tells, stock phrases, filler, and the like, then cleaned up so it reads like a person wrote
+        it. This same check was run on the page you are reading.</p>
+        <a class="detail-link" href="anti-ai.html" target="_blank" rel="noopener">Open the anti-AI check ↗</a>
+      </div></details>
+
+    <div class="groupname">Part two: the research it did for this topic</div>
+
+    <details class="item"><summary><span class="n">9</span><span class="tl">Keyword and competitor research</span><span class="arw">›</span></summary>
+      <div class="body">
+        <p>The starting point. It finds the search terms worth targeting and how hard each is to rank for, checks who
+        ranks today, and names the opening no competitor has taken.</p>
+        <div class="kres"><div class="kt">Key results for this topic</div><ul>
           <li>Main keyword: <span class="kw">skills based hiring</span> (about 880 searches a month, low difficulty at 12 out of 100).</li>
           <li>Supporting terms, each its own section: predictive validity, cut score, construct validity, content validity, criterion validity, disparate impact, employee turnover rate, 2026 recruitment.</li>
           <li>Variations woven in: skill based hiring, skills based recruitment, skill-based recruiting, and a few more.</li>
           <li>The opening we can own: no ranking page offers a free annual benchmark of assessment-stage numbers, AI cheating, candidate experience, and quality of hire by method.</li>
-          <li>Who ranks now: NACE, SHRM, AIHR, Workday, TestGorilla, and similar HR bodies and vendors.</li>
+          <li>Who ranks now: NACE, SHRM, AIHR, Workday, and TestGorilla, among other HR bodies and vendors.</li>
         </ul></div>
         <a class="detail-link" href="search.html" target="_blank" rel="noopener">See the full search brief ↗</a>
       </div></details>
 
-    <details class="item"><summary><span class="n">2</span><span class="tl">The evidence pack</span><span class="arw">›</span></summary>
+    <details class="item"><summary><span class="n">10</span><span class="tl">The evidence pack</span><span class="arw">›</span></summary>
       <div class="body">
-        <ul>
-          <li>Gathers the facts the article will stand on, from the open web, with a source behind every line.</li>
-          <li>Uses the small-newsroom method, so nothing comes from memory.</li>
-        </ul>
-        <div class="kres"><div class="kt">Key results</div><ul>
+        <p>The facts the article will stand on. It gathers deep, fully-sourced research from the open web using the
+        small-newsroom method, so nothing comes from memory and every claim has a source behind it.</p>
+        <div class="kres"><div class="kt">Key results for this topic</div><ul>
           <li>7,042 words of researched, cited notes.</li>
           <li>30 real sources, one behind every claim.</li>
           <li>3 extra targeted rounds run to fill gaps the first pass missed.</li>
@@ -172,13 +233,11 @@
         <a class="detail-link" href="evidence.html" target="_blank" rel="noopener">See the full evidence pack ↗</a>
       </div></details>
 
-    <details class="item"><summary><span class="n">3</span><span class="tl">The gap-check</span><span class="arw">›</span></summary>
+    <details class="item"><summary><span class="n">11</span><span class="tl">The gap-check</span><span class="arw">›</span></summary>
       <div class="body">
-        <ul>
-          <li>Checks the evidence actually covers everything the article needs.</li>
-          <li>Goes back and researches any important gap before moving on.</li>
-        </ul>
-        <div class="kres"><div class="kt">Key results</div><ul>
+        <p>A check on its own work. It confirms the evidence actually covers everything the article needs, and goes
+        back to research any important gap before moving on.</p>
+        <div class="kres"><div class="kt">Key results for this topic</div><ul>
           <li>30 must-cover items checked: 19 fully covered, 5 partly, 6 missing.</li>
           <li>Ran 3 extra targeted research rounds to close the important misses.</li>
           <li>It ranks the misses by how much they matter, so it fills what counts and skips trivia.</li>
@@ -186,13 +245,11 @@
         <a class="detail-link" href="gap.html" target="_blank" rel="noopener">See the full gap-check ↗</a>
       </div></details>
 
-    <details class="item"><summary><span class="n">4</span><span class="tl">The article blueprint</span><span class="arw">›</span></summary>
+    <details class="item"><summary><span class="n">12</span><span class="tl">The article blueprint</span><span class="arw">›</span></summary>
       <div class="body">
-        <ul>
-          <li>Turns all the research into the article laid out section by section.</li>
-          <li>Each section already carries its evidence, its links, and a target keyword.</li>
-        </ul>
-        <div class="kres"><div class="kt">Key results</div><ul>
+        <p>Where it all comes together. It turns the research into the article laid out section by section, and each
+        section already carries its evidence, its links, and a target keyword. The writer opens this and writes.</p>
+        <div class="kres"><div class="kt">Key results for this topic</div><ul>
           <li>20 possible sections (a menu; the writer trims to the four to seven that ship).</li>
           <li>76 sub-points, with about 1,700 pieces of evidence attached.</li>
           <li>5 sections flagged as our own angle, the parts competitors do not cover.</li>
@@ -200,42 +257,6 @@
         </ul></div>
         <a class="detail-link" href="plan.html" target="_blank" rel="noopener">Open the interactive blueprint ↗</a>
       </div></details>
-
-    <div class="groupname">The rulebook it bundles with the plan</div>
-    <p class="muted" style="font-size:14px; margin:2px 0 6px;">These are the house rules a writer follows. They are
-    the same for every topic, so they carry no per-topic results. Each opens the actual document.</p>
-
-    <details class="item"><summary><span class="n">5</span><span class="tl">Voice</span><span class="arw">›</span></summary>
-      <div class="body"><p>How Testlify sounds on the page, so the article reads like us and not a generic blog.</p>
-        <a class="detail-link" href="voice.html" target="_blank" rel="noopener">Open the voice guide ↗</a></div></details>
-
-    <details class="item"><summary><span class="n">6</span><span class="tl">Style and mechanics</span><span class="arw">›</span></summary>
-      <div class="body"><p>The formatting and structure rules that keep every article consistent.</p>
-        <a class="detail-link" href="style.html" target="_blank" rel="noopener">Open the style guide ↗</a></div></details>
-
-    <details class="item"><summary><span class="n">7</span><span class="tl">Product facts</span><span class="arw">›</span></summary>
-      <div class="body"><p>What Testlify actually does, so any mention of the product stays accurate and we never overclaim.</p>
-        <a class="detail-link" href="product.html" target="_blank" rel="noopener">Open the product facts ↗</a></div></details>
-
-    <details class="item"><summary><span class="n">8</span><span class="tl">SEO, AEO and GEO checklist</span><span class="arw">›</span></summary>
-      <div class="body"><p>The on-page rules to tick before publishing, so the article is set up to rank and to be quoted by search and AI answers.</p>
-        <a class="detail-link" href="seo.html" target="_blank" rel="noopener">Open the checklist ↗</a></div></details>
-
-    <details class="item"><summary><span class="n">9</span><span class="tl">Facts to cite</span><span class="arw">›</span></summary>
-      <div class="body"><p>Our vetted stats, opinions, and stories the writer can pull from, so claims are backed by material we stand behind.</p>
-        <a class="detail-link" href="cite.html" target="_blank" rel="noopener">Open the cite-from material ↗</a></div></details>
-
-    <details class="item"><summary><span class="n">10</span><span class="tl">Worked examples</span><span class="arw">›</span></summary>
-      <div class="body"><p>Samples of writing to match, so the tone and quality bar are shown, not just described.</p>
-        <a class="detail-link" href="examples.html" target="_blank" rel="noopener">Open the worked examples ↗</a></div></details>
-
-    <details class="item"><summary><span class="n">11</span><span class="tl">Writing integrity</span><span class="arw">›</span></summary>
-      <div class="body"><p>The honesty rules: no fake customers, no invented numbers, never cite a competitor, claim only what is true.</p>
-        <a class="detail-link" href="integrity.html" target="_blank" rel="noopener">Open the integrity rules ↗</a></div></details>
-
-    <details class="item"><summary><span class="n">12</span><span class="tl">Anti-AI writing check</span><span class="arw">›</span></summary>
-      <div class="body"><p>A final pass that strips the tells of machine writing, so the piece reads like a person wrote it.</p>
-        <a class="detail-link" href="anti-ai.html" target="_blank" rel="noopener">Open the anti-AI check ↗</a></div></details>
 
     <div class="note orange" style="margin-top:24px;"><span class="tag">Where it all goes next</span><br>
     All twelve pieces above travel together as one bundle to the writing phase, which we have not built yet. When it
@@ -248,7 +269,7 @@
 <section id="close">
   <div class="wrap">
     <h2>Over to you</h2>
-    <p>That is the full output for one topic, built by one command that runs the same way every time and can be set
+    <p>That is the full bundle for one topic, built by one command that runs the same way every time and can be set
     on a schedule. We would like your review of the output above.</p>
     <p>If you want to understand exactly how any step works under the hood, the keyword research, the evidence
     method, the gap-check, or the plan, just ask. I can share the detailed workflow for any of them.</p>
