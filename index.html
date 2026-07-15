@@ -75,16 +75,13 @@
   .stepc .n{width:24px; height:24px; border-radius:8px; background:var(--yellow-soft); border:1.5px solid var(--yellow); display:grid; place-items:center; font-weight:800; font-size:13px; margin-bottom:7px;}
   .stepc b{font-size:13.5px;} .stepc p{margin:3px 0 0; font-size:12.5px; color:var(--muted);}
 
-  /* accordion */
-  details{background:var(--paper); border:1px solid var(--line); border-radius:12px; margin:9px 0; box-shadow:var(--shadow); overflow:hidden;}
-  details[open]{border-color:var(--orange-soft);}
-  summary{cursor:pointer; padding:13px 16px; font-weight:600; font-size:15px; list-style:none; display:flex; align-items:center; gap:10px;}
-  summary::-webkit-details-marker{display:none;}
-  summary .n{flex:none; width:24px; height:24px; border-radius:7px; background:var(--wash); border:1px solid var(--orange-soft); display:grid; place-items:center; font-size:12px; font-weight:800; color:var(--orange);}
-  summary .arw{margin-left:auto; color:var(--orange); transition:transform .15s;}
-  details[open] summary .arw{transform:rotate(90deg);}
-  details .body{padding:0 16px 14px 50px; font-size:14.5px; color:var(--muted);}
-  details .body .file{font-family:ui-monospace,Menlo,monospace; font-size:12px;}
+  /* bundle link rows */
+  .blink{display:flex; align-items:center; gap:13px; text-decoration:none; color:var(--ink);
+    background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:12px 16px; margin:9px 0; box-shadow:var(--shadow);}
+  .blink:hover{border-color:var(--orange-soft); background:var(--wash);}
+  .blink .n{flex:none; width:26px; height:26px; border-radius:7px; background:var(--wash); border:1px solid var(--orange-soft); display:grid; place-items:center; font-size:12.5px; font-weight:800; color:var(--orange);}
+  .blink .tl{font-weight:600; font-size:15px;} .blink .ds{color:var(--muted); font-size:13px; margin-top:1px;}
+  .blink .arw{margin-left:auto; color:var(--orange); font-weight:800; font-size:18px;}
 
   footer{padding:36px 0 56px; color:var(--muted); font-size:13.5px;}
   @media(max-width:760px){ .grid,.steps{grid-template-columns:1fr;} .what{grid-template-columns:1fr;} .what .k{padding-top:10px;} }
@@ -210,16 +207,12 @@
       <div class="stat"><div class="big">30</div><div class="cap">real sources, one behind every claim</div></div>
       <div class="stat"><div class="big">3</div><div class="cap">extra targeted rounds to fill gaps</div></div>
     </div>
-    <details>
-      <summary><span class="n">↕</span>See two facts it pulled<span class="arw">›</span></summary>
-      <div class="body">
-        <p style="margin:12px 0 8px;">These come straight from the evidence pack, each tied to a named source:</p>
-        <ul>
-          <li>NACE's Job Outlook 2026 survey of 183 employers found 70% used skills-based hiring, up from 65% the year before.</li>
-          <li>Structured interviews showed the highest predictive validity of common screening methods (mean r = .42, Sackett and colleagues, 2023), with smaller demographic gaps than cognitive-ability tests.</li>
-        </ul>
-      </div>
-    </details>
+    <h3>Two facts it pulled</h3>
+    <p class="muted" style="font-size:14.5px; margin-bottom:6px;">Straight from the evidence pack, each tied to a named source:</p>
+    <ul style="color:var(--muted); font-size:14.5px;">
+      <li>NACE's Job Outlook 2026 survey of 183 employers found 70% used skills-based hiring, up from 65% the year before.</li>
+      <li>Structured interviews showed the highest predictive validity of common screening methods (mean r = .42, Sackett and colleagues, 2023), with smaller demographic gaps than cognitive-ability tests.</li>
+    </ul>
   </div>
 </section>
 
@@ -285,28 +278,19 @@
       <div class="k">Why it matters</div><div>It closes the loop. The plan is copied in, and every house rule the writer must follow is attached and pointed to.</div>
     </div>
     <p>The reader we are writing for is a <b>TA or recruiting leader</b>, and the byline is the <b>Testlify Team</b>.
-    Both are chosen by the engine, not left to the writer. Click any item below to see what is inside it.</p>
+    Both are chosen by the engine, not left to the writer. Click any item to open its full page. The article plan
+    opens as an interactive view; each page has a back link to return here.</p>
 
-    <details><summary><span class="n">1</span>The article plan<span class="arw">›</span></summary>
-      <div class="body">The section-by-section plan from step 4, copied straight in. Headings, the evidence under each, the internal and external links, the target keywords, and the FAQ.</div></details>
-    <details><summary><span class="n">2</span>Voice<span class="arw">›</span></summary>
-      <div class="body">How Testlify sounds on the page, so the article reads like us and not like a generic blog.</div></details>
-    <details><summary><span class="n">3</span>Style and mechanics<span class="arw">›</span></summary>
-      <div class="body">The formatting and structure rules: heading length, how to open, how to close, and the small conventions that keep every article consistent.</div></details>
-    <details><summary><span class="n">4</span>Product facts<span class="arw">›</span></summary>
-      <div class="body">What Testlify actually does, so any mention of the product stays accurate and we never overclaim.</div></details>
-    <details><summary><span class="n">5</span>SEO checklist<span class="arw">›</span></summary>
-      <div class="body">The on-page rules to tick before publishing, so the article is set up to rank and to be quoted by search and AI answers.</div></details>
-    <details><summary><span class="n">6</span>Approved facts to cite<span class="arw">›</span></summary>
-      <div class="body">Our vetted stats, opinions, and stories the writer can pull from, so claims are backed by material we stand behind.</div></details>
-    <details><summary><span class="n">7</span>Worked examples<span class="arw">›</span></summary>
-      <div class="body">Samples of writing to match, so the tone and quality bar are shown, not just described.</div></details>
-    <details><summary><span class="n">8</span>Writing integrity<span class="arw">›</span></summary>
-      <div class="body">The honesty rules: no fake customers, no invented numbers, never cite a competitor, claim only what is true.</div></details>
-    <details><summary><span class="n">9</span>Anti-AI writing check<span class="arw">›</span></summary>
-      <div class="body">A final pass that strips the tells of machine writing, so the piece reads like a person wrote it.</div></details>
-    <details><summary><span class="n">10</span>Fuller search research<span class="arw">›</span></summary>
-      <div class="body">The deeper keyword and competitor notes behind step 1, on hand for any extra depth the plan does not already carry.</div></details>
+    <a class="blink" href="plan.html"><span class="n">1</span><span><span class="tl">The article plan</span><div class="ds">The interactive section-by-section plan: headings, evidence, links, keywords, and FAQ.</div></span><span class="arw">›</span></a>
+    <a class="blink" href="voice.html"><span class="n">2</span><span><span class="tl">Voice</span><div class="ds">How Testlify sounds on the page.</div></span><span class="arw">›</span></a>
+    <a class="blink" href="style.html"><span class="n">3</span><span><span class="tl">Style and mechanics</span><div class="ds">The formatting and structure rules.</div></span><span class="arw">›</span></a>
+    <a class="blink" href="product.html"><span class="n">4</span><span><span class="tl">Product facts</span><div class="ds">What Testlify does, so any mention stays accurate.</div></span><span class="arw">›</span></a>
+    <a class="blink" href="seo.html"><span class="n">5</span><span><span class="tl">SEO checklist</span><div class="ds">The on-page rules to tick before publishing.</div></span><span class="arw">›</span></a>
+    <a class="blink" href="cite.html"><span class="n">6</span><span><span class="tl">Approved facts to cite</span><div class="ds">Our vetted stats, opinions, and stories.</div></span><span class="arw">›</span></a>
+    <a class="blink" href="examples.html"><span class="n">7</span><span><span class="tl">Worked examples</span><div class="ds">Samples of writing to match.</div></span><span class="arw">›</span></a>
+    <a class="blink" href="integrity.html"><span class="n">8</span><span><span class="tl">Writing integrity</span><div class="ds">The honesty and claim rules.</div></span><span class="arw">›</span></a>
+    <a class="blink" href="anti-ai.html"><span class="n">9</span><span><span class="tl">Anti-AI writing check</span><div class="ds">A final pass so the piece reads like a person wrote it.</div></span><span class="arw">›</span></a>
+    <a class="blink" href="search.html"><span class="n">10</span><span><span class="tl">Fuller search research</span><div class="ds">The deeper keyword and competitor notes behind step 1.</div></span><span class="arw">›</span></a>
   </div>
 </section>
 
